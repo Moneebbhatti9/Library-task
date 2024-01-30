@@ -1,0 +1,46 @@
+.pTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid rgb(197, 197, 197);
+}
+
+.tHead th {
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  height: 3rem;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.table-row {
+  text-align: center;
+  height: 5rem;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.table-row td,
+.table-row th {
+  padding: 12px;
+}
+
+.table-row th:first-child,
+.table-row td:first-child {
+  text-align: center;
+}
+
+.dropdown-menu {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 1440px) {
+  .table-container {
+    overflow-x: auto;
+  }
+}

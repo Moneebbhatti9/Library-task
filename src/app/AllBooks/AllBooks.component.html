@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <h1 class="component-heading">Product List</h1>
+  <div class="main-content-container">
+    <div class="filter-dropdown">
+      <button
+        class="btn btn-sm btn-outline-primary dropdown-toggle p-2"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-filter-left"></i>
+        Status
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a
+          class="dropdown-item p-1"
+          style="cursor: pointer"
+          (click)="filterBooks('all')"
+          >All Books</a
+        >
+        <a
+          class="dropdown-item p-1"
+          style="cursor: pointer"
+          (click)="filterBooks('available')"
+          >Show Available Books</a
+        >
+        <a
+          class="dropdown-item p-1"
+          style="cursor: pointer"
+          (click)="filterBooks('unavailable')"
+          >Show Unavilable Books</a
+        >
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="pTable">
+        <thead class="tHead">
+          <tr>
+            <th>
+              <input
+                type="checkbox"
+                class="form-check-input table-row-heading p-2"
+                name=""
+                id=""
+              />
+            </th>
+            <th style="padding: 8px">SL</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="table-row"
+            *ngFor="let book of filteredBooks; let i = index"
+          >
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2"
+                name=""
+                id=""
+              />
+            </td>
+            <td style="padding: 8px">{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.category }}</td>
+            <td>
+              {{ book.status == 0 ? "Not Available" : "Available" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
