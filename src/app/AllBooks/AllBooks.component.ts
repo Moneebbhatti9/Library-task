@@ -13,6 +13,8 @@ export class AllBooksComponent implements OnInit {
   books!: Book[];
   filteredBooks!: Book[] | any[];
   selectedFilter: string | null = null;
+  sortBy: string = '';
+  sortAsc: boolean = true;
 
   ngOnInit() {
     this.filteredBooks = this.books = this.libraryService.getBooks();
@@ -29,6 +31,27 @@ export class AllBooksComponent implements OnInit {
           ? book.status == 1
           : book.status == 0;
       });
+    }
+  }
+
+  sortBooks(sortOption: string) {
+    if (this.sortBy === sortOption) {
+      this.sortAsc = !this.sortAsc;
+    } else {
+      this.sortAsc = true;
+    }
+    this.sortBy = sortOption;
+
+    if (sortOption === 'title') {
+      this.filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOption === 'author') {
+      this.filteredBooks.sort((a, b) => a.author.localeCompare(b.author));
+    } else if (sortOption === 'category') {
+      this.filteredBooks.sort((a, b) => a.category.localeCompare(b.category));
+    } else if (sortOption === 'Id') {
+      this.filteredBooks.sort((a, b) =>
+        this.sortAsc ? a.id - b.id : b.id - a.id
+      );
     }
   }
 }

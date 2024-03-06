@@ -1,37 +1,79 @@
 <div class="container-fluid">
   <h1 class="component-heading">Product List</h1>
   <div class="main-content-container">
-    <div class="filter-dropdown">
-      <button
-        class="btn btn-sm btn-outline-primary dropdown-toggle p-2"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        <i class="bi bi-filter-left"></i>
-        Status
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a
-          class="dropdown-item p-1"
-          style="cursor: pointer"
-          (click)="filterBooks('all')"
-          >All Books</a
+    <div class="d-flex justify-content-between">
+      <div class="filter-dropdown">
+        <button
+          class="btn btn-sm btn-outline-primary dropdown-toggle p-2"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
         >
-        <a
-          class="dropdown-item p-1"
-          style="cursor: pointer"
-          (click)="filterBooks('available')"
-          >Show Available Books</a
+          <i class="bi bi-filter-left"></i>
+          Status
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="filterBooks('all')"
+            >All Books</a
+          >
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="filterBooks('available')"
+            >Show Available Books</a
+          >
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="filterBooks('unavailable')"
+            >Show Unavilable Books</a
+          >
+        </div>
+      </div>
+
+      <div class="sort-dropdown">
+        <button
+          class="btn btn-sm btn-outline-primary dropdown-toggle p-2"
+          type="button"
+          id="dropdownMenuSortButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
         >
-        <a
-          class="dropdown-item p-1"
-          style="cursor: pointer"
-          (click)="filterBooks('unavailable')"
-          >Show Unavilable Books</a
-        >
+          <i class="bi bi-sort-alpha-down"></i>
+          Sort By
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuSortButton">
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="sortBooks('Id')"
+            >id</a
+          >
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="sortBooks('title')"
+            >Title</a
+          >
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="sortBooks('author')"
+            >Author</a
+          >
+          <a
+            class="dropdown-item p-1"
+            style="cursor: pointer"
+            (click)="sortBooks('category')"
+            >Category</a
+          >
+        </div>
       </div>
     </div>
 
